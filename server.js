@@ -1,15 +1,22 @@
 'use strict';
 
 const express = require('express');
+const app = express();
+const parser = require('body-parser')
 
 // Constants
 const PORT = 8080;
 const HOST = '0.0.0.0';
 
+// Parser
+app.use(parser.urlencoded({ extended: true }));
+app.use(parser.json());
+
 // App
-const app = express();
 app.get('/', (req, res) => {
-  res.send('Hello World');
+  res.json({
+    message: "Hello,world"
+  });
 });
 
 app.listen(PORT, HOST);
