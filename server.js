@@ -14,9 +14,40 @@ app.use(parser.json());
 
 // App
 app.get('/', (req, res) => {
-  res.json({
-    message: "Hello,world"
-  });
+  res.json(
+    [
+      {
+        "group": "ケースベース",
+        "label": "総ケース数",
+        "dailyValues": [
+          {
+            "date": "2020-03-23",
+            "hourlyValues": [
+              {
+                "hour": 23,
+                "value": "18149"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "group": "ケースベース",
+        "label": "累計 予定",
+        "dailyValues": [
+          {
+            "date": "2020-03-23",
+            "hourlyValues": [
+              {
+                "hour": 23,
+                "value": "17920"
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  );
 });
 
 app.listen(PORT, HOST);
